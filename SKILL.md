@@ -398,6 +398,11 @@ Every presentation should have a goal that is: Specific, Measurable, Achievable,
 - **Need a pitch for a client?** → Combine with `/agency-prep` for sales context
 - **Need to practice negotiation in a meeting?** → Combine with `/negotiate prep`
 
+## Bundled Resources
+
+### References
+- `references/frameworks-cheatsheet.md` — one-page pull-out of the core frameworks (structure, persuasion table, body language, hostile-question handling, elevator pitch). Offer it to the user as a printable pre-talk cheat sheet, or consult it for a quick recap of any framework.
+
 ## Important Notes
 
 - **ALWAYS save output to file** — never only in conversation
