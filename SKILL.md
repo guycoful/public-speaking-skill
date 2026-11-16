@@ -1,6 +1,6 @@
 ---
 name: present
-description: "Presentation & public speaking coach - build presentations, prepare for talks, and get stage coaching. Uses persuasion theory, storytelling, body language frameworks from academic course. Use when user says 'present', 'הרצאה', 'פרזנטציה', 'מצגת', 'דיבור מול קהל', 'pitch', or needs help with a talk."
+description: "Presentation & public speaking coach - build presentations, prepare for talks (on stage or webinar), plan audience engagement, and get stage coaching. Uses persuasion theory, storytelling, body language frameworks from academic course, plus an engagement playbook distilled from real Israeli webinars. Use when user says 'present', 'הרצאה', 'פרזנטציה', 'מצגת', 'דיבור מול קהל', 'וובינר', 'סדנה', 'לשתף את הקהל', 'pitch', or needs help with a talk."
 ---
 
 # Present - מאמן הרצאות ופרזנטציות
@@ -22,6 +22,7 @@ If no explicit mode, detect from context:
 - "צריך מצגת על" / "בונה הרצאה" / "מה לשים בשקפים" → **build**
 - "יש לי הרצאה מחר" / "מתכונן לפיץ'" / "הולך לדבר בכנס" → **prep**
 - "איך לעמוד על במה" / "פחד קהל" / "שפת גוף" / "מה עושים עם שאלות" → **coach**
+- "הצ'אט שקט" / "איך לגרום לקהל להשתתף" / "איך להחזיק אותם עד הסוף" → **coach** (engagement playbook)
 - Unclear → ask:
   ```
   מה אתה צריך?
@@ -44,7 +45,10 @@ Ask ONE AT A TIME:
 - מה הנושא?
 - מי הקהל? (עסקים, סטודנטים, לקוחות, כנס מקצועי...)
 - כמה זמן יש לך? (5 דקות, 20, 45, שעה?)
+- פרונטלי או אונליין (זום / וובינר)?
 ```
+
+If online, apply the **Webinar Layer** (below) on top of the structure.
 
 **Round 2 — Goal:**
 ```
@@ -53,7 +57,10 @@ Ask ONE AT A TIME:
 ב) ללמד (להעביר ידע, סדנה)
 ג) לעורר השראה (כנס, מוטיבציה)
 ד) לדווח (עדכון שוטף, סטטוס)
+ה) למכור (וובינר עם הצעה בסוף)
 ```
+
+If the goal is selling, ask once: "המכירה היא המטרה המוצהרת, או הצעה רכה אחרי הערך?" — the answer decides which selling model to use (see `references/audience-engagement.md` §10).
 
 **Round 3 — Key Message:**
 ```
@@ -85,6 +92,18 @@ Use the **"Rule of Three"** framework and build:
 #### הכובע שלך (Hat Theory — credibility builder)
 [Which identity/hat creates both uniqueness AND common ground with THIS audience]
 
+#### חוזה פתיחה
+- **הבטחה מוחשית:** "בסוף תצאו עם [תוצר שאפשר לגעת בו]"
+- **סדר יום + שעת סיום:** [3 חלקים] | מסיימים ב-[שעה]
+- **התחייבות קטנה מהקהל:** [e.g. "תכתבו 'פייר' בצ'אט אם אתם איתי"]
+
+#### שאלת פתיחה שחוזרים אליה
+- **השאלה:** [poll with 3-4 numbered options]
+- **איפה חוזרים אליה:** [which later section answers it]
+
+#### דמות-עוגן / מספר-עוגן (אופציונלי)
+[One character or number from the opening story that every later comparison leans on: "תזכרו את המספר הזה"]
+
 ---
 
 ### 📐 גוף (70% מהזמן = ~[X] דקות)
@@ -108,6 +127,21 @@ Use the **"Rule of Three"** framework and build:
 
 ---
 
+### 🔥 מפת מעורבות (לאורך כל ההרצאה)
+
+| דקה | נקודת השתתפות | סוג (סולם 1-7) |
+|-----|---------------|----------------|
+| 0-2 | [check-in: "תנו סימן בצ'אט"] | 1 |
+| ~5 | [opening poll] | 2 |
+| ~12 | [guess before reveal on a key number] | 3 |
+| ~20 | [humor game / audience story request] | 5-6 |
+| ~30 | [audience-sourced content: myths, their examples] | — |
+| ... | [one point every 5-10 min on stage, every 7-8 min online] | |
+
+Use the participation ladder from the knowledge base. Build up gradually — no mic requests before the chat is alive.
+
+---
+
 ### 🎯 סיום (15% מהזמן = ~[X] דקות)
 
 #### סיכום (חזרה על 3 הטיעונים במשפט אחד כל אחד)
@@ -119,7 +153,10 @@ Use the **"Rule of Three"** framework and build:
 "[Specific, actionable thing the audience should do RIGHT NOW]"
 
 #### סגירת מעגל
-[Callback to the opening story/question — close the loop]
+[Callback to the opening story/question/poll — close the loop]
+
+#### טיפ אחרון (במקום לסיים במכירה)
+[One extra practical tip after the CTA/offer, so the last thing they remember is value]
 
 ---
 
@@ -141,6 +178,40 @@ Use the **"Rule of Three"** framework and build:
 - תמונות ברזולוציה גבוהה > בולטים
 - מקש B להחשכה כשצריך את תשומת הלב עליך
 - לעולם אל תקרא מהשקף
+- כל נתון עם מקור בתחתית השקף + רמת אמינות (עובדה / חלקי / אין מקור)
+```
+
+### Step 2b: Webinar Layer (online talks only)
+
+Add this block to the structure when the talk is online:
+
+```markdown
+### 💻 שכבת וובינר
+
+#### לפני האירוע
+- [ ] שאלה בטופס ההרשמה שתהפוך לתוכן: [e.g. "איזה מיתוס שמעתם על X?"]
+- [ ] דוגמאות מהקהל לפירוק (פוסטים, עבודות) — לבקש רשות
+- [ ] מדריך עם צילומי מסך לכל צעד טכני שהקהל יעשה — נשלח מראש
+- [ ] מארח שמציג אותך: מה לבקש שיגיד [why he invited you, one specific thing]
+- [ ] עוזר בצ'אט שמקפיץ קישורים ועונה על תקלות
+- [ ] סרטון גיבוי להדגמה החיה
+
+#### חדר המתנה (5 דק' לפני)
+- מוזיקה / שקף פתיחה + שאלה קלה לצ'אט
+
+#### כללי הערב (דקה 1)
+- מצלמות: "מי שנוח לו"
+- השתקה: עם נימוק אישי
+- שאלות: בצ'אט לאורך כל הדרך / בסוף
+- הקלטה: יש / אין, ולמה
+
+#### קצב
+- נקודת השתתפות כל 7-8 דקות לכל היותר
+- להקריא תשובות מהצ'אט בשמות
+- לנעול את הצ'אט כשמדביקים קישור או פרומפט חשוב
+
+#### מחזיק עד הסוף
+[gift / hands-on segment / unrevealed answers — pick one that is real, see playbook §9]
 ```
 
 ### Step 3: Offer Enhancements
@@ -209,6 +280,15 @@ Create `outputs/presentations/` if it doesn't exist.
 - [ ] עמידה באזור הבמה — להתרגל למרחב
 - [ ] נשימות עמוקות + כוס מים
 
+#### אם זה וובינר (תוספת)
+- [ ] שבוע לפני: שאלה בטופס ההרשמה שתהפוך לחלק מההרצאה
+- [ ] 3 ימים לפני: מדריך צילומי מסך לכל צעד טכני של הקהל, נשלח עם התזכורת
+- [ ] יום לפני: ריצה יבשה של ההדגמה מחשבון חדש (לא מהחשבון שלך)
+- [ ] יום לפני: לתאם עם המארח מה הוא אומר בהצגה, ועם העוזר בצ'אט מה הוא מקפיץ ומתי
+- [ ] שעה לפני: קישורים, פרומפטים וקבצים מוכנים בקובץ אחד להדבקה
+- [ ] שעה לפני: לסגור התראות, לבדוק שאין סיסמאות או מידע אישי בשיתוף המסך
+- [ ] שעון גלוי מולך עם שעת הסיום שהבטחת
+
 ---
 
 ### אסטרטגיית שכנוע (מותאמת לקהל)
@@ -228,6 +308,21 @@ Create `outputs/presentations/` if it doesn't exist.
 
 #### יוריסטיקות שכנוע לשימוש
 - [Which heuristics fit: expert, data, fear+solution, no-motive]
+
+#### כלל המקורות
+- הנתון המוכר שננפץ בפתיחה: [a widely quoted stat in this field + where it really came from]
+- נתונים בהרצאה: [each with source + reliability level]
+
+---
+
+### תוכנית מעורבות
+
+| דקה | מה הקהל עושה | איפה זה מתחבר בהמשך |
+|-----|--------------|---------------------|
+| [..] | [check-in / poll / guess / story / mic] | [callback point] |
+
+**מה מחזיק אותם עד הסוף:** [one real mechanism: gift, hands-on, unrevealed answer]
+**אם יש מכירה:** [model: declared goal with early disclosure / soft offer after value] + מה הטיפ האחרון אחרי ההצעה
 
 ---
 
@@ -330,6 +425,47 @@ The user describes a challenge or asks for tips. Respond with:
   4. Why me — unique credibility
 - Framework: 30-second model.
 
+**"הצ'אט שקט / הקהל לא משתתף" (וובינר):**
+- DO: Start at the bottom of the ladder — an emoji or a number, not an opinion. "למי זה קרה? תלחצו אימוג'י".
+- DO: Read answers aloud with names. People who hear their name keep writing, and others join.
+- DO: Ask them to guess before you reveal a number. The guess makes them wait for the answer.
+- DON'T: Ask for the mic or for opinions before the chat is warm.
+- Framework: Participation ladder (micro-commitments → bigger ones).
+
+**"איך מחזיקים אותם עד הסוף?":**
+- DO: Announce early what they get at the end (template, prompts, a hands-on segment) — and make it worth it.
+- DO: Open loops: an opening poll you promise to come back to, myths you'll bust later.
+- DO: Finish when you said you would. Overrunning loses people right before the CTA.
+- DON'T: Invent scarcity ("no recording", "48 hours") that isn't real. Audiences notice.
+- Framework: Open loops + retention hooks (playbook §4, §9).
+
+**"מישהו מהקהל חולק עליי בפומבי":**
+- DO: Invite them to speak. Agree where you can, mark what's still open ("אין לזה מקור, אז שווה לבדוק").
+- DO: Treat it as content — a real disagreement keeps the room awake.
+- DON'T: Defend every point. A speaker who can hold criticism looks more confident.
+- Framework: Hostile-question handling + hat theory (you're the one who checks, not the one who knows everything).
+
+**"ההדגמה החיה נתקעה":**
+- DO: Have a backup recording of the flow ready, and say "בואו נראה את זה בהקלטה, ואחרי זה אעזור למי שתקוע".
+- DO: Give the stuck-people a helper in chat, and keep going for everyone else.
+- DO: Stop sharing your screen before typing passwords, and say so out loud.
+- DON'T: Spend 10 minutes debugging live. Every technical step loses people.
+- Framework: Friction = drop-off points (playbook §8).
+
+**"איך למכור בסוף בלי להרוס את ההרצאה?":**
+- DO: Decide upfront which model: declared selling goal (say so in the invite, disclose interests early) or a soft offer after all the value.
+- DO: Disclose affiliate or financial interest yourself, before someone asks.
+- DO: End with one more useful tip after the offer, so value is the last thing they remember.
+- DON'T: Turn every audience question into a pitch. Answer the question first.
+- Framework: No-motive heuristic + recency effect.
+
+**"איך להיות אמין כשאני מביא נתונים?":**
+- DO: Put a source under every number and say how reliable it is.
+- DO: Bust one popular stat early by showing where it came from. After that, they trust your other numbers.
+- DO: Mark your opinions: "זו השערה שלי".
+- DON'T: Use absolute claims ("הכי בטוח", "אף אחד לא...") in front of a professional crowd.
+- Framework: Data heuristic + "rule of sources" (playbook §5).
+
 ---
 
 ## Embedded Knowledge Base
@@ -392,6 +528,35 @@ The intersection of both = maximum credibility and chemistry.
 ### SMART Goals for Presentations
 Every presentation should have a goal that is: Specific, Measurable, Achievable, Realistic, Time-bound.
 
+### Participation Ladder (סולם ההשתתפות)
+Build participation gradually, from cheap to costly:
+1. Emoji / number in chat
+2. Multiple-choice poll
+3. Guess before reveal
+4. Profile questions (role, age, experience)
+5. Humor game (e.g. bingo of the field's clichés)
+6. Personal story in the comments
+7. Open mic
+Read answers aloud with names. Online: a participation point at least every 7-8 minutes.
+
+### Open Loops & Anchors (סגירת מעגל)
+- **Opening poll you return to** later in the talk.
+- **Anchor character / number** from the opening story that every later comparison leans on ("תזכרו את המספר הזה").
+- **Detail planted as a joke** early that comes back as the point.
+
+### Rule of Sources (כלל המקורות)
+Every number has a source on the slide and a spoken reliability level: fact / partly true / no source. Bust one popular stat early. Mark hypotheses as hypotheses.
+
+### Audience as Content
+Collect material before the event (registration-form question), dissect audience members' work (with permission), call people by name, invite dissenters to speak.
+
+### Retention Hooks
+Gift at the end, hands-on segment, unrevealed answers. Use only hooks that are real — fake scarcity costs more trust than it gains.
+
+### Two Selling Models
+- **Declared goal:** say it in the invite, disclose interests early, ROI with an anchor number, a pessimistic version of the ROI that still holds.
+- **Soft offer:** after all the value, "don't feel obligated", then one more tip so value comes last.
+
 ## Integration with Other Skills
 
 - **Need actual slides?** → After building structure, offer `/cinematic-slides` or `/presentation-architect`
@@ -401,7 +566,8 @@ Every presentation should have a goal that is: Specific, Measurable, Achievable,
 ## Bundled Resources
 
 ### References
-- `references/frameworks-cheatsheet.md` — one-page pull-out of the core frameworks (structure, persuasion table, body language, hostile-question handling, elevator pitch). Offer it to the user as a printable pre-talk cheat sheet, or consult it for a quick recap of any framework.
+- `references/frameworks-cheatsheet.md` — one-page pull-out of the core frameworks (structure, persuasion table, body language, hostile-question handling, elevator pitch, engagement). Offer it to the user as a printable pre-talk cheat sheet, or consult it for a quick recap of any framework.
+- `references/audience-engagement.md` — engagement playbook distilled from two real Israeli webinars (a sales webinar and a professional community webinar, names removed): warm-up, opening contract, participation ladder, open loops, rule of sources, audience-as-content, live demos, retention hooks, two selling models, Q&A, closing, and what not to copy. Read it whenever the user builds or preps a webinar/workshop, asks how to get the audience involved, or plans to sell at the end of a talk.
 
 ## Important Notes
 
@@ -412,3 +578,5 @@ Every presentation should have a goal that is: Specific, Measurable, Achievable,
 - **Rule of Three** — never present more than 3 main arguments
 - **Visual over text** — always recommend images over bullet points in slides
 - **CTA is mandatory** — every presentation must end with a clear call to action
+- **Engagement is planned, not improvised** — every structure includes an engagement map with timed participation points
+- **Respect the clock** — plan content for 80% of the slot; overrunning loses people right before the CTA
