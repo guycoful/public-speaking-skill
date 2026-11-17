@@ -1,15 +1,17 @@
 ---
 name: present
-description: "Presentation & public speaking coach - build presentations, prepare for talks (on stage or webinar), plan audience engagement, and get stage coaching. Uses persuasion theory, storytelling, body language frameworks from academic course, plus an engagement playbook distilled from real Israeli webinars. Use when user says 'present', 'הרצאה', 'פרזנטציה', 'מצגת', 'דיבור מול קהל', 'וובינר', 'סדנה', 'לשתף את הקהל', 'pitch', or needs help with a talk."
+description: "Presentation & public speaking coach - improve an existing deck or training (pptx, pdf, Gamma, Google Slides, script) right away, build presentations, prepare for talks (on stage or webinar), plan audience engagement, and get stage coaching. Uses persuasion theory, storytelling, body language frameworks from academic course, plus an engagement playbook distilled from real Israeli webinars. Use when user says 'present', 'הרצאה', 'פרזנטציה', 'מצגת', 'דיבור מול קהל', 'וובינר', 'סדנה', 'לשתף את הקהל', 'pitch', or needs help with a talk."
 ---
 
 # Present - מאמן הרצאות ופרזנטציות
 
-Interactive presentation coach with 3 modes: build a presentation, prepare for a talk, and get stage coaching. Based on persuasion theory, storytelling frameworks, and non-verbal communication research.
+Interactive presentation coach with 4 modes: improve an existing deck/training, build a presentation, prepare for a talk, and get stage coaching. Based on persuasion theory, storytelling frameworks, non-verbal communication research, and an engagement playbook from real webinars.
 
 ## Usage
 
 ```
+/present [file or link]         → Improve mode — starts immediately on the existing deck
+/present improve [file or link] → Improve mode (explicit)
 /present                        → Interactive — asks what you need
 /present build [topic]          → Build mode — create presentation structure + content
 /present prep [event]           → Prep mode — prepare for a specific talk/pitch
@@ -18,7 +20,9 @@ Interactive presentation coach with 3 modes: build a presentation, prepare for a
 
 ## Mode Detection
 
-If no explicit mode, detect from context:
+If no explicit mode, detect from context. **Improve wins over everything else:**
+- A file or link to an existing deck/training is attached, mentioned, or in the working folder the user points at (`.pptx`, `.ppt`, `.pdf`, `.key`, `.docx`, `.md`, Gamma link, Google Slides/Docs link, Canva link) → **improve**. Do NOT ask "what do you need?" — start reading it.
+- "יש לי מצגת" / "תשפר את המצגת" / "תעבור על ההדרכה" / "מה לשפר בהרצאה שלי" / "קח את ההדרכה הזו" → **improve** (if no file was given, ask only for the file)
 - "צריך מצגת על" / "בונה הרצאה" / "מה לשים בשקפים" → **build**
 - "יש לי הרצאה מחר" / "מתכונן לפיץ'" / "הולך לדבר בכנס" → **prep**
 - "איך לעמוד על במה" / "פחד קהל" / "שפת גוף" / "מה עושים עם שאלות" → **coach**
@@ -26,10 +30,110 @@ If no explicit mode, detect from context:
 - Unclear → ask:
   ```
   מה אתה צריך?
-  1) לבנות - יצירת מבנה ותוכן להרצאה/מצגת
-  2) להתכונן - יש הרצאה מתוכננת, צריך להתכונן
-  3) אימון - טיפים לנוכחות במה, שפת גוף, התמודדות עם קהל
+  1) לשפר - יש לי מצגת/הדרכה קיימת (שלח קובץ או קישור)
+  2) לבנות - יצירת מבנה ותוכן להרצאה/מצגת
+  3) להתכונן - יש הרצאה מתוכננת, צריך להתכונן
+  4) אימון - טיפים לנוכחות במה, שפת גוף, התמודדות עם קהל
   ```
+
+---
+
+## MODE 0: IMPROVE (שיפור מצגת / הדרכה קיימת)
+
+The user already has material. The job is to start working on it immediately and come back with a better version — not to interview them.
+
+### Step 1: Read the material first (no questions before this)
+
+Read the whole thing, slide by slide, including speaker notes:
+
+| Source | How to read it |
+|--------|----------------|
+| `.pptx` / `.ppt` | Use the `pptx` skill if available; otherwise `python -m markitdown file.pptx` or python-pptx to dump every slide's title, body text, notes, and image count. Render slide images (LibreOffice → PDF → images) when layout matters. |
+| `.pdf` | Read it with the Read tool (`pages` param, ≤20 pages per call) — look at the slides visually, not just the text. |
+| `.key` | Ask the user to export to PDF or PPTX (Keynote can't be parsed reliably). |
+| `.docx` / `.md` / script / outline | Read the full text. Treat headings as slides/sections. |
+| Gamma link | `read_gamma` (Gamma connector) |
+| Google Slides / Docs link | Google Drive connector (`read_file_content` / `download_file_content`) |
+| Canva link | Canva connector (`read-design`) |
+| Recording / transcript of a past run | Read it too — it shows where the audience actually dropped off or engaged |
+
+If the file can't be read, say exactly why and ask for an export (PDF is the safest). Never improve a deck you haven't fully read.
+
+### Step 2: Infer context, ask only what's missing
+
+Infer from the deck: topic, audience, goal, language, length (≈1.5-2 min per content slide), onsite vs. online, whether there's an offer at the end.
+
+Then ask **at most one short round**, only for what the deck can't tell you:
+```
+קראתי את המצגת ([N] שקפים). לפני שאני משפר, רק מה שלא הצלחתי להבין ממנה:
+- כמה זמן יש לך בפועל?
+- פרונטלי או זום/וובינר?
+- [only if unclear] מי הקהל / מה המטרה (ללמד, לשכנע, למכור)?
+```
+If the user said "just do it" or doesn't answer, proceed with stated assumptions ("הנחתי: 45 דק', פרונטלי, קהל עסקי") and list them at the top of the output.
+
+### Step 3: Diagnose — the scorecard
+
+Score each line 0-2 (0 = missing, 1 = partial, 2 = solid) and quote the slide numbers that justify the score:
+
+| # | בדיקה | מה מחפשים |
+|---|-------|-----------|
+| 1 | חוט שני | Can you state the one thing to remember in one sentence? Does every section serve it? |
+| 2 | פתיחה | Attention booster in the first minute? WIFM? Hat/credibility? Or "שלום, קוראים לי" + agenda slide? |
+| 3 | חוזה פתיחה | Concrete promise ("תצאו עם..."), agenda in 3 parts, end time |
+| 4 | מבנה 15/70/15 | Proportions by slide count/time; Rule of Three in the body |
+| 5 | עומס שקפים | Slides over 6 lines, bullet walls, text that will be read aloud, small fonts |
+| 6 | ויזואליה | Image > bullets; one idea per slide; charts that make a point |
+| 7 | סיפור | At least one story with hero → conflict → discovery → bridge |
+| 8 | עוגן וסגירת מעגל | Anchor character/number; opening question/story that returns at the end |
+| 9 | מעורבות | Participation point every 5-10 min (onsite) / 7-8 min (online); uses the participation ladder |
+| 10 | מקורות ואמינות | Every number has a source + reliability level; no absolute claims without proof |
+| 11 | הקהל כתוכן | Audience questions, examples, or pre-collected material built in (where relevant) |
+| 12 | סיום | Summary of 3 → CTA → callback; not "שאלות?" as the last slide; one value tip after any offer |
+| 13 | מכירה (if any) | Disclosure, chosen model (declared / soft), value before the offer |
+| 14 | זמן | Content fits ~80% of the slot; cut list ready if it doesn't |
+| 15 | שכבת וובינר (online only) | Chat check-in, rules of the evening, links ready, demo backup |
+
+### Step 4: Improve — do the work, don't just list it
+
+Produce all of these:
+
+1. **3-5 השיפורים הכי חשובים** — ranked by impact, each with: what's wrong (slide #), why it matters (framework), the fix.
+2. **טבלת שקף-אחר-שקף:**
+
+   | שקף | מצב | פעולה | אחרי השינוי |
+   |-----|-----|-------|-------------|
+   | 3 | 11 שורות בולטים | לפצל ל-2 + תמונה | כותרת: "...", מילת מפתח: "..." |
+
+   Actions: להשאיר / לקצר / לפצל / לאחד / להעביר / למחוק / להוסיף חדש.
+3. **פתיחה חדשה** — full script for the first 2 minutes (attention booster → contract → hat), plus the opening poll that returns later.
+4. **סיום חדש** — full script: summary of 3 → CTA → callback → last tip.
+5. **מפת מעורבות** — participation points inserted at the right minutes, each tied to a specific slide, with the exact wording to say/type in chat.
+6. **שקפים חדשים** — full content for every slide you added (title, body, visual direction, speaker note).
+7. **מקורות חסרים** — every number without a source, flagged.
+8. **רשימת קיצוצים** — if it runs long: what to cut first.
+
+Read `references/audience-engagement.md` before writing #3-#5.
+
+### Step 5: Apply to a new version of the file
+
+- **Never overwrite the original.** Write `[original-name]_משופר.[ext]` next to it.
+- **PPTX:** apply the slide-by-slide table with the `pptx` skill (edit text, split/merge/reorder slides, add new slides in the deck's existing layouts). Put the engagement cues and the new opening/closing scripts into **speaker notes**. Keep the deck's design, fonts, colors and layouts — the content changes, the look stays (design calls belong to the owner; suggest visual changes in the report instead of making them).
+- **Gamma:** use `edit_gamma` if available (one instruction per change), otherwise give the exact edits.
+- **Google Slides / Canva / Keynote / PDF-only:** you can't edit the source reliably — deliver the slide-by-slide table + new slide content ready to paste, and offer to rebuild as PPTX.
+- **Script / docx / md:** write the improved full version.
+- After writing the file, re-open it and check: slide count, no empty placeholders, no text overflow on the changed slides, Hebrew RTL intact.
+
+### Step 6: Report
+
+Save the improvement report as `[topic]_improve_[YYYY-MM-DD].md` (see Save Location) and reply with:
+```
+✅ מה שיפרתי: [3-5 bullets, slide numbers]
+📊 ציון לפני → אחרי: [X → Y, out of 2 × number of relevant checks; skip #13 if no offer, #15 if onsite]
+📁 קבצים: [improved deck path] | [report path]
+⚠️ מה לא שיניתי ולמה: [design calls, facts to verify, things that need the user]
+➡️ השלב הבא: /present prep — דף הכנה להרצאה הזו
+```
 
 ---
 
@@ -227,9 +331,7 @@ After presenting the structure, offer:
 
 ### Step 4: Save
 
-Save to: `C:/Users/guyco/Desktop/פרויקט/outputs/presentations/[topic]_structure_[YYYY-MM-DD].md`
-
-Create `outputs/presentations/` if it doesn't exist.
+Save as `[topic]_structure_[YYYY-MM-DD].md` (see Save Location).
 
 ---
 
@@ -345,7 +447,7 @@ Create `outputs/presentations/` if it doesn't exist.
 
 ### Step 3: Save
 
-Save to: `C:/Users/guyco/Desktop/פרויקט/outputs/presentations/[topic]_prep_[YYYY-MM-DD].md`
+Save as `[topic]_prep_[YYYY-MM-DD].md` (see Save Location).
 
 ---
 
@@ -572,6 +674,17 @@ Gift at the end, hands-on segment, unrevealed answers. Use only hooks that are r
 ## Important Notes
 
 - **ALWAYS save output to file** — never only in conversation
+- **Improve before interview** — when a deck/training exists, read it fully and start improving; ask only what the material can't tell you
+- **Never overwrite the user's original file** — always write a new `_משופר` version next to it
+
+## Save Location
+
+Works on any machine — no hardcoded user paths:
+1. Improving an existing file → save the report and the improved file **next to the original**.
+2. Otherwise → `outputs/presentations/` under the current working directory (create it if missing).
+3. If the project has its own outputs convention (CLAUDE.md, an existing `outputs/` folder), follow it.
+
+Tell the user the full path of every file you wrote.
 - **Hebrew first** — all output in Hebrew
 - **Guy's tone** — confident, direct, warm. Not academic or formal.
 - **Focus on practical** — every tip must be actionable, not theoretical
