@@ -122,7 +122,8 @@ Read `references/audience-engagement.md` before writing #3-#5.
 - **Gamma:** use `edit_gamma` if available (one instruction per change), otherwise give the exact edits.
 - **Google Slides / Canva / Keynote / PDF-only:** you can't edit the source reliably — deliver the slide-by-slide table + new slide content ready to paste, and offer to rebuild as PPTX.
 - **Script / docx / md:** write the improved full version.
-- After writing the file, re-open it and check: slide count, no empty placeholders, no text overflow on the changed slides, Hebrew RTL intact.
+- **Hebrew in PPTX:** set `rtl="1"` + right alignment on every paragraph you write, **and** `lang="he-IL"` on every run (`a:rPr`). Without the run language, punctuation next to Latin words and arrows flips to the wrong side ("הסיפור :חשבוניות"). Build tables right-to-left (first column on the right).
+- After writing the file, re-open it and check: slide count, no empty placeholders, no text overflow on the changed slides, Hebrew RTL intact. If PowerPoint or LibreOffice is available, render the changed slides to PNG and look at them (Windows: PowerPoint COM `Slide.Export(path, "PNG", 960, 540)`).
 
 ### Step 6: Report
 
@@ -676,6 +677,14 @@ Gift at the end, hands-on segment, unrevealed answers. Use only hooks that are r
 - **ALWAYS save output to file** — never only in conversation
 - **Improve before interview** — when a deck/training exists, read it fully and start improving; ask only what the material can't tell you
 - **Never overwrite the user's original file** — always write a new `_משופר` version next to it
+- **Hebrew first** — all output in Hebrew
+- **Guy's tone** — confident, direct, warm. Not academic or formal.
+- **Focus on practical** — every tip must be actionable, not theoretical
+- **Rule of Three** — never present more than 3 main arguments
+- **Visual over text** — always recommend images over bullet points in slides
+- **CTA is mandatory** — every presentation must end with a clear call to action
+- **Engagement is planned, not improvised** — every structure includes an engagement map with timed participation points
+- **Respect the clock** — plan content for 80% of the slot; overrunning loses people right before the CTA
 
 ## Save Location
 
@@ -685,11 +694,3 @@ Works on any machine — no hardcoded user paths:
 3. If the project has its own outputs convention (CLAUDE.md, an existing `outputs/` folder), follow it.
 
 Tell the user the full path of every file you wrote.
-- **Hebrew first** — all output in Hebrew
-- **Guy's tone** — confident, direct, warm. Not academic or formal.
-- **Focus on practical** — every tip must be actionable, not theoretical
-- **Rule of Three** — never present more than 3 main arguments
-- **Visual over text** — always recommend images over bullet points in slides
-- **CTA is mandatory** — every presentation must end with a clear call to action
-- **Engagement is planned, not improvised** — every structure includes an engagement map with timed participation points
-- **Respect the clock** — plan content for 80% of the slot; overrunning loses people right before the CTA
