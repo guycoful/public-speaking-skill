@@ -106,6 +106,8 @@ flowchart LR
 - **`references/audience-engagement.md`** — ארגז כלים למעורבות קהל, עם שכבה ייעודית לוובינרים
 - **מפת מעורבות** — בכל מבנה הרצאה: מתי הקהל משתתף, איך, ולאן זה מתחבר בהמשך
 
+**דוגמה אמיתית:** [`examples/finance-automation-training/`](examples/finance-automation-training/) כוללת חוברת הדרכה לפני ואחרי, כל שקף כתמונה, ואת דוח השיפור שהסקיל כתב (ציון 2/26 → 23/26).
+
 התוצרים נשמרים אוטומטית לקבצים ב-`outputs/presentations/`, לא רק בשיחה.
 
 ---
@@ -118,6 +120,9 @@ public-speaking-skill/
 ├── references/
 │   ├── frameworks-cheatsheet.md      # דף פריימוורקים מרוכז להדפסה
 │   └── audience-engagement.md        # ארגז כלים למעורבות קהל ווובינרים
+├── examples/
+│   ├── README.md                     # מבנה הדוגמאות + בריף לסוקר חיצוני (Grok וכו')
+│   └── finance-automation-training/  # לפני/אחרי: PPTX, תמונות שקפים, טקסט, דוח שיפור
 ├── README.md
 └── LICENSE
 ```
